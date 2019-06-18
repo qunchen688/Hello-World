@@ -1,7 +1,3 @@
-# Hello-World
-hi qun
-I am trying to overcome myself although I don't have any base on the coding
-I hope you can insisit on it
-Do nor afraid to try and make mistakes
+#怎么在R中自动设置换行
+#tools - global project- Code-> Editing-> 勾选 Soft-wrap R source files,makes code more readable
 
-Hope you can do 
