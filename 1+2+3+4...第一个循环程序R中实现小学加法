@@ -1,0 +1,24 @@
+##while loops 1+2+3.....99
+
+i <- 0
+s <- 0
+
+while (i<100) {
+ 
+  i = i+1
+  s = s + i
+  
+
+  
+}
+print(s)
+
+#for 
+s <- 0
+for (i in 1:100) {
+  i = i+1
+  s = s + i
+  
+  print(s)
+}
+#第一个是加到99，第二个是加到100
