@@ -1,0 +1,19 @@
+#apply -Returns a vector or array or list of values obtained by applying a function to margins of an array or matrix.
+#apply is used to a evaluate a function (often an anonymous one) over the margins of an array.应用对象是矩阵的行或列
+#apply(X, MARGIN, FUN, ...)  matrix 1 indicates rows, 2 indicates columns, c(1, 2) indicates rows and columns
+#For sums and means of matrix dimensions, we have some shortcuts
+#rowSums = apply(x, 1, sum)
+#rowMeans = apply(x, 1, mean)
+#colSums = apply(x, 2, sum)
+#colMeans = apply(x, 2, mean)
+> x <- matrix(rnorm(200), 20, 10)
+> apply(x, 1, quantile, probs = c(0.25, 0.75))
+          [,1]       [,2]       [,3]       [,4]       [,5]       [,6]        [,7]       [,8]        [,9]      [,10]
+25% -0.3621113 -0.6362636 -0.9282753 -0.4486916 -1.5085063 -1.2894355 0.002231181 -0.5073778 -0.01001711 -1.0369662
+75%  0.4926152  0.5038236  0.4772428  0.6130905  0.1026191 -0.3148631 0.789690248  0.3781431  0.53057511  0.9990699
+         [,11]      [,12]      [,13]      [,14]     [,15]      [,16]      [,17]      [,18]      [,19]      [,20]
+25% -1.2559827 -0.1789311 -0.8295032 -0.7084985 0.0191935 -0.3658700 -0.4714015 -0.8060449 -0.6654763 -0.6697352
+75%  0.3541294  0.6078905  0.2520174  0.3438181 0.5933558  0.5239532  0.7325716  0.6730732  0.4339651  0.8485620
+
+#lappy, apply, tapply只能把一个函数应用到某个单一的对象上
+#mapply is a multivariate apply of sorts which applies a function in parallel over a set of arguments.
