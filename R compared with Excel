@@ -1,0 +1,10 @@
+#select specific value, row, columns 
+
+
+#Removing NA values 
+x <- c(1, 2, NA, 4, NA, 5)
+bad <- is.na(x)
+x[!bad]
+#another function we can use, complete.cases
+
+#good <- complete.cases(数据框x)，good 是个逻辑值向量；数据框x[good,][1:6,]
