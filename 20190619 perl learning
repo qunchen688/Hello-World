@@ -1,0 +1,32 @@
+#Ubuntu写了个脚本 vi hello.pl 进入后，按i，插入后再输入
+#！/usr/bin/perl
+print "hello,World!/n"
+chmod 764 hello.pl #改了权限
+./hello.pl
+hello, World!
+#如果文本文件第一行的前两个字符是＃!,接下来是实际执行文件其余部分的程序的名称。
+#书中举得例子，我看完后真的狂吐槽，我就是搞不懂这些火星符号代表了啥
+#!/usr/bin/perl
+@lines = `perldoc -u -f atan2`;
+foreach (@lines) {
+s/\w<([^>]+)>/\U$1/g;
+print;
+}
+#首先在自己的Ubuntu安装了这个东西
+sudo apt-get install perl-doc
+perldoc --help
+#其中参数代表的意思
+-u   Display unformatted pod text
+-f   Search Perl built-in functions
+*此命令告诉您有关三角函数atan2的信息。我们在这里使用它只是作为我们希望处理其输出的外部命令的示例。
+反引号中该命令的输出保存在名为@lines的数组变量中。下一行代码启动一个循环，处理这些行中的每一行。
+在循环内部，语句是缩进的。虽然Perl不需要这个，但优秀的程序员可以这样做。
+循环体内的第一条线是最可怕的一条线;它说s / \ w <（[^>] +）> / \ U $ 1 / g;。
+在没有详细说明的情况下，我们只是说这可以改变任何具有尖括号（<>）的特殊标记的行，并且perldoc命令的输出中应该至少有一个。
+下一行，突然移动，打印出每条（可能是修改过的）线。
+结果输出应该类似于perldoc -u -f atan2本身可以做的，但是会出现任何这些标记出现的变化。
+因此，在几行的范围内，我们运行另一个程序，将其输出保存在内存中，更新内存项并打印出来。
+这种程序是Perl的一种相当普遍的用法，其中一种类型的数据被转换为另一种。
+
+#上面表示看不懂
+#Scalar Data http://www.runoob.com/perl/perl-data-types.html
