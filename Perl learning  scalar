@@ -1,0 +1,84 @@
+#数字标量 internally, Perl computes with double-precision floatingpoint values. 
+#most modern systems use the IEEE-754 format, which suggests 15 digits of precision and a range of at least 1e-100 to 1e100.
+
+61298040283768 
+#等同于这种输入
+61_298_040_283_768
+
+#Numeric Operators-Perl provides the typical ordinary addition, subtraction, multiplication, and division operators, and so on. 
+#For example:
+2 + 3 # 2 plus 3, or 5
+5.1 − 2.4 # 5.1 minus 2.4, or 2.7
+3 * 12 # 3 times 12 = 36
+14 / 2 # 14 divided by 2, or 7
+#Perl provides the FORTRAN-like exponentiation operator,The operator is represented by the double asterisk
+2**3  #which is two to the third power, or eight.
+
+
+#Strings Literal strings come in two different flavors: 
+
+#1-The single quotes are not part of the string itself—they’re just there to let Perl identify the beginning and the ending of the string.
+'hello\n' # hello followed by backslash followed by n (Note that the \n within a single-quoted string is not interpreted as a newline)
+
+#2-Double-Quoted String Literals-the backslash takes on its full power to specify certain control characters
+
+"barney" # just the same as 'barney'
+"hello world\n" # hello world, and a newline
+"The last character of this string is a quote mark: \""
+"coke\tsprite" # coke, a tab, and sprite
+上面的例子是说明了双引号下的反斜杠作用
+
+#Double-quoted string backslash escapes(反斜杠后面跟的字母代表的执行功能)
+\L Lowercase all following letters until \E
+\u Uppercase next letter
+\U Uppercase all following letters until \E
+\Q Quote nonword characters by adding a backslash until \E
+\E End \L, \U, or \Q
+
+#String Operators
+#String values can be concatenated with the . operator.
+"hello" . "world" # same as "helloworld"
+"hello" . ' ' . "world" # same as 'hello world'
+'hello world' . "\n" # same as "hello world\n"
+#有一种特殊的string operator is the string repetition operator, consisting of the single lowercase letter x
+"fred" x 3 # is "fredfredfred"
+"barney" x (4+1) # is "barney" × 5, or "barneybarneybarneybarneybarney"
+5 × 4 # is really "5" × 4, which is "5555"
+
+
+#Automatic Conversion Between Numbers and Strings
+#It all depends upon the operator being used on the scalar value
+"Z" . 5 * 7 # same as "Z" . 35, or "Z35"
+
+# it’s made up of alphanumerics and underscores, but can’t start with a digit. Upper and lowercase letters are distinct
+#是由字母，下划线数字组成，但是不能以数字开头，而且大小写是区分开的
+#优化程序或者是提示出现问题可以使用下面的命令行
+$ perl -Mdiagnostics ./my_program
+#!/usr/bin/perl -w
+
+#binary assignments operators-For example, the following two lines are equivalent:
+
+$fred = $fred + 5; # without the binary assignment operator
+$fred += 5; # with the binary assignment operator
+
+$barney = $barney * 3;
+$barney *= 3;
+
+#the string concatenate operator( . ); this gives us an append operator ( .= )
+$str = $str . " "; # append a space to $str
+$str .= " "; # same thing with assignment operator
+
+#Output with print
+print "hello world\n"; # say hello world, followed by a newline
+print "The answer is ";
+print 6 * 7;
+print ".\n";
+#You can give print a series of values, separated by commas:
+print "The answer is ", 6 * 7, ".\n";
+
+#Interpolation of Scalar Variables into Strings 将标量变量插值为字符串
+#When a string literal is double-quoted, it is subject to variable interpolation
+
+$meal = "brontosaurus steak";
+$barney = "fred ate a $meal"; # $barney is now "fred ate a brontosaurus steak"
+$barney = 'fred ate a ' . $meal; # another way to write that
