@@ -1,0 +1,7 @@
+#!/usr/bin/perl
+@rocks = qw/ bedrock slate lava /;
+foreach $rock (@rocks) {
+$rock = "\t$rock"; #put a tab in front of each element of @rocks
+$rock .= "\n";
+}
+print "The rocks are:\n", @rocks
